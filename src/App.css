@@ -54,3 +54,67 @@ a {
   color: #027ed1;
   margin: 100px 0;
 }
+
+.albumArtworkFrame{
+  text-align: center;
+}
+
+.albumArtwork{
+  border-radius: 50% 50%;
+  margin-bottom: 20px;
+}
+
+.trackBody{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-panel {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  color: #000;
+}
+
+audio {
+  margin-left: -10px;
+  height: 30px;
+  width: 95%;
+}
+
+[id="heart"] {
+  position: absolute;
+  left: -100vw;
+}
+
+[for="heart"] {
+  color: #aab8c2;
+  cursor: pointer;
+  font-size: 30px;
+  align-self: center;  
+  transition: color 0.2s ease-in-out;
+}
+
+[for="heart"]:hover {
+  color: grey;
+}
+
+[for="heart"]::selection {
+  color: none;
+  background: transparent;
+}
+
+[for="heart"]::moz-selection {
+  color: none;
+  background: transparent;
+}
+
+[id="heart"]:checked + label {
+  color: #e2264d;
+  will-change: font-size;
+}
+
+
+
+@keyframes heart {0%, 17.5% {font-size: 0;}}
