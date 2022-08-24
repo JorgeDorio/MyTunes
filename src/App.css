@@ -87,3 +87,15 @@ audio {
   text-align: center;
   margin-bottom: 20px;
 }
+
+.lupa {
+  margin-top: 20px;
+  width: 40%;
+  filter: invert(90%);
+  transform: scaleX(-1);
+}
+
+.home-page{
+  padding: 20px;
+  text-align: center;
+}

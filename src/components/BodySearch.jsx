@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import MyContext from '../context/MyContext';
 import searchAlbumsAPI from '../helpers/searchAlbumsAPI';
+import Lupa from '../images/lupa.png'
 
 const BodySearch = () => {
   const { searchedTerm, setAlbumApiResult, albumApiResult, setCurrentAlbumId, buttonState, setSearch } =
@@ -14,11 +15,8 @@ const BodySearch = () => {
   useEffect(() => {
     getAlbums(searchedTerm);
   }, [buttonState]);
-
-  useEffect(() => {
-    console.log(albumApiResult)
-  }, [])
   return (
+
     <div className="body-search">
       {albumApiResult.map((album) => (
         <a className="card" onClick={() => setCurrentAlbumId(album.collectionId)} key={album.collectionId} href={`${document.location.origin}/album/${album.collectionId}`}>
@@ -29,6 +27,14 @@ const BodySearch = () => {
           </div>
         </a>
       ))}
+      {!albumApiResult.length && (
+        <div className='home-page'>
+          <p>
+            Nothing here for now... How about searching for your favorite singer or band?
+          </p>
+          <img className='lupa' src={Lupa} />
+        </div>
+      )}
     </div>
   );
 };
