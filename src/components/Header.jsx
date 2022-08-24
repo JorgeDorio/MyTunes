@@ -40,7 +40,7 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href={`${window.location.origin}/favorites`}>
                   Favorites
                 </a>
               </li>

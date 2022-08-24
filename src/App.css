@@ -82,3 +82,8 @@ audio {
   align-items: center;
   justify-content: space-between;
 }
+
+.pageTittle {
+  text-align: center;
+  margin-bottom: 20px;
+}
