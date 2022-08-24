@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MyContext from '../context/MyContext';
 
-const Header = () => {
-  const { setSearchedTerm, buttonState, setButtonState, search, setSearch } = useContext(MyContext);
+const HeaderNoSearch = () => {
+  const { setSearchedTerm } = useContext(MyContext);
+  const [search, setSearch] = useState('');
   const [login, setLogin] = useState('')
 
   const submitSearch = (event) => {
     event.preventDefault();
     setSearchedTerm(search);
-    setButtonState(!buttonState)
   };
 
   useEffect(() => {
@@ -48,22 +48,6 @@ const Header = () => {
                 <a className="nav-link">Profile</a>
               </li>
             </ul>
-            <form
-              className="d-flex"
-              role="search"
-              onSubmit={(event) => submitSearch(event)}
-            >
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onChange={(event) => setSearch(event.target.value)}
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
@@ -71,4 +55,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderNoSearch;

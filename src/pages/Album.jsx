@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
+import HeaderNoSearch from '../components/HeaderNoSearch';
 import getMusics from '../helpers/musicsAPI';
 
 const Album = () => {
@@ -18,15 +18,15 @@ const Album = () => {
 
   return (
     <div className="main-frame">
-      <Header />
+      <HeaderNoSearch />
       {albumDetails && <div className='albumArtworkFrame'><img className='albumArtwork' src={albumDetails.artworkUrl100} /><p>{albumDetails.artistName}</p></div>}
       <div className='audioBody'>
         {currentAlbum.map((music) => (
-          <div className='trackBody'>
-            {music.trackName}
-            {/* <input id="heart" type="checkbox" /> */}
-            {/* <label for="heart">❤</label> */}
-            <span><audio src={music.previewUrl} controls className='audioTrack' /></span>
+          <div>
+            <div className='trackBody'>
+              {music.trackName}
+            </div>
+            <audio src={music.previewUrl} controls className='audioTrack' />
           </div>
         ))}
       </div>

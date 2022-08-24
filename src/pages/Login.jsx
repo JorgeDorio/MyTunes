@@ -24,6 +24,7 @@ const Login = () => {
     if (!request) {
       setWrongCredentials(true);
     } else {
+      localStorage.setItem('user', username)
       navigate('/home');
     }
   };
