@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import HeaderNoSearch from '../components/HeaderNoSearch';
 import getMusics from '../helpers/musicsAPI';
+import heartCheck from '../helpers/heartCheck'
 
 const Album = () => {
   const id = document.location.pathname.split('/')[2];
@@ -22,9 +23,14 @@ const Album = () => {
       {albumDetails && <div className='albumArtworkFrame'><img className='albumArtwork' src={albumDetails.artworkUrl100} /><p>{albumDetails.artistName}</p></div>}
       <div className='audioBody'>
         {currentAlbum.map((music) => (
-          <div>
+          <div key={music.trackId}>
             <div className='trackBody'>
               {music.trackName}
+              <input id={`heart-${music.trackId}`} type="checkbox" onChange={() => console.log('mudou')} />
+              <label for={`heart-${music.trackId}`}>❤</label>
+              <style>
+                {heartCheck(music.trackId)}
+              </style>
             </div>
             <audio src={music.previewUrl} controls className='audioTrack' />
           </div>
